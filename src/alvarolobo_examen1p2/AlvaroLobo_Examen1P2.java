@@ -53,13 +53,15 @@ static PCs p = new PCs();
             opcion = lea.nextLine(); 
             
             if (opcion.startsWith("ping")) {
-                String[] ip = new String[4];
-                String[] host = new String[4];
+                String[] ip = new String[3];
+                String[] host = new String[3];
                 
                 String []tokens = opcion.split("_");
                 ip[0] = tokens[1];
                 String []tokens2 = ip[0].split("\\.");
-                System.out.println(tokens2[0]);
+                for (int i = 0; i < 4; i++) {
+                    dtob(tokens2[i]);
+                }
                 
             }
             else{
@@ -146,11 +148,19 @@ static PCs p = new PCs();
             System.out.print("Tipo de almacenamiento: ");
             lea.nextLine();
             String tipo = lea.nextLine();
-            Escritorio e = new Escritorio(ram, espacio, tipo, ip, tipo, hostname);
+            Escritorio e = new Escritorio(ram, espacio, tipo, ip, mascara, hostname);
             pc.add(e);
             System.out.println(pc);
         }
     }
     
+    static public String dtob(String d){
+        int decimal = Integer.parseInt(d);
+        int decimalInicial = decimal;
+        String binario = Integer.toBinaryString(decimalInicial);
+        System.out.println(binario); // 1000
+        
+        return binario;
+}
     
 }
