@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class AlvaroLobo_Examen1P2 {
 static Scanner lea = new Scanner(System.in);
-static ArrayList pc = new ArrayList();
+static ArrayList <PCs> pc = new ArrayList();
 static PCs p = new PCs();
 
     public static void main(String[] args) {
@@ -24,12 +24,47 @@ static PCs p = new PCs();
                     menu();
                     break;
                 case 2:
+                    consola();
                     break;
                     
             }
             
         }
     }
+    
+    //case 2
+    
+    static public void consola(){
+        String opcion = "";
+        while(opcion != "exit"){
+            System.out.println("PCs: ");
+            if (pc.size() >= 0) {
+                for (int i = 0; i < pc.size(); i++) {
+                    System.out.println(i + " - Hostname: " + pc.get(i).getHostname());
+                    System.out.println("  - Ip: " + pc.get(i).getIp());
+                } 
+            }
+            System.out.print("Posicion de la PC a ingresar: ");
+            int pos = lea.nextInt();
+
+            System.out.print(pc.get(pos).getHostname() + "#");
+            lea.nextLine();
+            opcion = lea.nextLine(); 
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //case 1
     
     static public void menu(){
         System.out.println("");
@@ -83,6 +118,18 @@ static PCs p = new PCs();
             pc.add(p);
             System.out.println(pc);
 
+        }
+        if (opcion == 2) {
+            System.out.print("Ram: ");
+            int ram = lea.nextInt();
+            System.out.print("Capacidad de almacentamiento: ");
+            int espacio = lea.nextInt();
+            System.out.print("Tipo de almacenamiento: ");
+            lea.nextLine();
+            String tipo = lea.nextLine();
+            Escritorio e = new Escritorio(ram, espacio, tipo, ip, tipo, hostname);
+            pc.add(e);
+            System.out.println(pc);
         }
     }
     
