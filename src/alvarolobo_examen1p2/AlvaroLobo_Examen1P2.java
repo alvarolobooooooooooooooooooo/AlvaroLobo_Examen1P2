@@ -36,20 +36,39 @@ static PCs p = new PCs();
     
     static public void consola(){
         String opcion = "";
-        while(opcion != "exit"){
-            System.out.println("PCs: ");
-            if (pc.size() >= 0) {
-                for (int i = 0; i < pc.size(); i++) {
-                    System.out.println(i + " - Hostname: " + pc.get(i).getHostname());
-                    System.out.println("  - Ip: " + pc.get(i).getIp());
-                } 
-            }
-            System.out.print("Posicion de la PC a ingresar: ");
-            int pos = lea.nextInt();
-
-            System.out.print(pc.get(pos).getHostname() + "#");
+        System.out.println("PCs: ");
+        if (pc.size() >= 0) {
+            for (int i = 0; i < pc.size(); i++) {
+                System.out.println("");
+                System.out.println(i + " - Hostname: " + pc.get(i).getHostname());
+                System.out.println("  - Ip: " + pc.get(i).getIp());
+                System.out.println("");
+            } 
+        }
+        System.out.print("Posicion de la PC a ingresar: ");
+        int pos = lea.nextInt();
+        while(!opcion.equals("exit")){
             lea.nextLine();
+            System.out.print(pc.get(pos).getHostname() + "#");
             opcion = lea.nextLine(); 
+            
+            if (opcion.startsWith("ping")) {
+                String[] ip = new String[4];
+                String[] host = new String[4];
+                
+                String []tokens = opcion.split("_");
+                ip[0] = tokens[1];
+                String []tokens2 = ip[0].split("\\.");
+                System.out.println(tokens2[0]);
+                
+            }
+            else{
+                if (opcion.equals("show")) {
+                    System.out.println("ip: " + pc.get(pos).getIp());
+                    System.out.println("mask: " + pc.get(pos).getMask());
+                }
+            }
+            
         }
         
     }
