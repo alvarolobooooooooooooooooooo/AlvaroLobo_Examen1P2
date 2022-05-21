@@ -90,14 +90,26 @@ public class AlvaroLobo_Examen1P2 {
                 System.out.println(cont1);
                 
                 if (binarioInputIp.equals(binarioIP)) {
-                    System.out.println("Pinging to 192.14.64.128with 32 bytes of data: \n" +
-"                    Reply from 192.14.64.128: Destination host unreachable\n" +
-"                    Reply from 192.14.64.128: Destination host unreachable\n" +
-"                    Reply from 192.14.64.128: Destination host unreachable\n" +
-"                    Reply from 192.14.64.128: Destination host unreachable\n" +
+                    System.out.println("Pinging to" + binarioInputIp + "with 32 bytes of data: \n" +
+"                    Reply from "+binarioInputIp+ " : bytes=32 time=37ms\n" +
+"                    Reply from "+binarioInputIp+ ": bytes=32 time=37ms\n" +
+"                    Reply from "+ binarioInputIp+": bytes=32 time=37ms\n" +
+"                    Reply from "+binarioInputIp+": bytes=32 time=37ms\n" +
 "\n" +
-"                    Ping statistics for 192.14.64.128:\n" +
+"                    Ping statistics for "+binarioInputIp+":\n" +
 "                        Packets: Sent = 4, Recieved = 4, Lost = 0 (0% loss)");
+                }
+                else{
+                    if (!binarioInputIp.equals(binarioIP)) {
+                    System.out.println("Pinging to" + binarioInputIp + "with 32 bytes of data: \n" +
+"                    Reply from "+binarioInputIp+ " : Destination host unreachable\n" +
+"                    Reply from "+binarioInputIp+ ": Destination host unreachable\n" +
+"                    Reply from "+ binarioInputIp+": Destination host unreachable\n" +
+"                    Reply from "+binarioInputIp+": Destination host unreachable\n" +
+"\n" +
+"                    Ping statistics for "+binarioInputIp+":\n" +
+"                        Packets: Sent = 4, Recieved = 4, Lost = 0 (0% loss)");
+                    }
                 }
                 
                 
