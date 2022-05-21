@@ -58,27 +58,36 @@ public class AlvaroLobo_Examen1P2 {
                 String[] tokens = opcion.split("_");
                 ip[0] = tokens[1];
                 String[] tokens2 = ip[0].split("\\.");
-                String mascara = "";
+                String binarioInputIp = "";
                 for (int i = 0; i < 4; i++) {
-                    mascara += dtob(tokens2[i]);
+                    binarioInputIp += dtob(tokens2[i]);
                     //System.out.println(mascara);
                 }
-                int cont1 = 0;
-                for (int i = 0; i < mascara.length(); i++) {
-                    if (mascara.charAt(i) == '1') {
-                        cont1++;
-                    }
-                }
-                System.out.println("binario mascara: " + mascara);
-                System.out.println(cont1);
+
+                System.out.println("binario Input IP: " + binarioInputIp);
                 
                 String[] tokensIP = pc.get(pos).getIp().split("\\.");
                 String binarioIP = new String();
                 //System.out.println(tokensIP[1]);
                 for (int i = 0; i < tokensIP.length; i++) {
                     binarioIP += dtob(tokensIP[i]);
-                    System.out.println(binarioIP);
                 }
+                System.out.println("binario IP de pc actual: " + binarioIP); //binario ip de comp en la que esta
+                // comparar con binarioIpInput
+                
+                String[] tokensMask = pc.get(pos).getMask().split("\\.");
+                String binarioMask = new String();
+                for (int i = 0; i < tokensMask.length; i++) {
+                    binarioMask += dtob(tokensMask[i]);
+                }
+                System.out.println("mask: " + binarioMask);
+                int cont1 = 0;
+                for (int i = 0; i < binarioMask.length(); i++) {
+                    if (binarioMask.charAt(i) == '1') {
+                        cont1++;
+                    }
+                }
+                System.out.println(cont1);
                 
                 
                 
