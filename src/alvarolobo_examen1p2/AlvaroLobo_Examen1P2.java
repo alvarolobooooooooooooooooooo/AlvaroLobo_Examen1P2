@@ -110,7 +110,18 @@ public class AlvaroLobo_Examen1P2 {
 "                    Ping statistics for "+binarioInputIp+":\n" +
 "                        Packets: Sent = 4, Recieved = 4, Lost = 0 (0% loss)");
                     }
+                    else{
+                        int a = 0;
+                        if (a == 0) {
+                            for (int i = 0; i < pc.size(); i++) {
+                                if (pc.get(i).getIp().equals(binarioInputIp)) {
+                                    System.out.println("No se encontro esa PC");
+                                }
+                            }
+                        }
+                    }
                 }
+                
                 
                 
 
